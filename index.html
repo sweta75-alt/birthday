@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ A Magical Birthday Wish ✨</title>
+    <meta name="description" content="A Disney Princess themed magical birthday celebration">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Fairy tale scripts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel+Decorative:wght@400;700;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Import Maps for Three.js CDNs -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div id="enchanted-world">
+        <canvas id="birthday-canvas"></canvas>
+        
+        <!-- Storybook Banner -->
+        <div class="storybook-scroll" id="top-scroll">
+            <div class="scroll-ribbon">👑</div>
+            <div class="scroll-text">Once Upon a Birthday...</div>
+        </div>
+
+        <!-- Central Enchanted Wish -->
+        <div class="princess-box" id="main-wish">
+            <div class="sparkle-cluster">✨</div>
+            <div class="wish-content">
+                <p class="wish-prefix">Wishing the most magical</p>
+                <h1 class="wish-title">Happy Birthday</h1>
+                <p class="wish-suffix">My Forever Girl 💖</p>
+            </div>
+            <div class="sparkle-cluster">✨</div>
+        </div>
+
+        <!-- Magic Magic Wand Area -->
+        <div class="wand-container">
+            <button id="test-trigger" class="magic-wand-btn">
+                <span class="wand-icon">🪄</span> Wave the Magic Wand
+            </button>
+        </div>
+
+        <!-- Dreamy Shimmer -->
+        <div class="sparkle-overlay"></div>
+    </div>
+
+    <!-- Main Module Script -->
+    <script type="module" src="scene.js"></script>
+</body>
+</html>

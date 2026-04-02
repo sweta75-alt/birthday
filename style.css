@@ -1,0 +1,288 @@
+/* ========================================
+   DISNEY PRINCESS BIRTHDAY THEME
+   Color Palette inspired by Disney:
+   - Cinderella Blue: #4A8FD4
+   - Aurora Pink: #F7A8C4
+   - Rapunzel Purple: #8E6BBF
+   - Belle Gold: #F5C542
+   - Snow White Red: #D94F5C
+   - Ariel Teal: #2ECDC0
+   - Fairy Dust White: #FFF8F0
+   ======================================== */
+
+:root {
+    --cinderella-blue: #4A8FD4;
+    --cinderella-blue-light: #7CB8F0;
+    --aurora-pink: #F7A8C4;
+    --aurora-pink-deep: #E8749E;
+    --rapunzel-purple: #8E6BBF;
+    --rapunzel-purple-light: #B595DD;
+    --belle-gold: #F5C542;
+    --belle-gold-glow: #FFE17A;
+    --snow-red: #D94F5C;
+    --ariel-teal: #2ECDC0;
+    --fairy-white: #FFF8F0;
+    --dream-bg-top: #1a1040;
+    --dream-bg-bottom: #2d1b69;
+    --sparkle-shimmer: rgba(255, 255, 255, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    background: linear-gradient(180deg, var(--dream-bg-top) 0%, var(--dream-bg-bottom) 50%, #3d1a6e 100%);
+    color: var(--fairy-white);
+    font-family: 'Quicksand', sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+#enchanted-world {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* ======== ENCHANTED OVERLAYS ======== */
+.storybook-scroll {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    text-align: center;
+    background: linear-gradient(90deg, transparent 0%, rgba(245, 197, 66, 0.15) 50%, transparent 100%);
+    padding: 10px 40px;
+    border-top: 1px solid var(--belle-gold);
+    border-bottom: 1px solid var(--belle-gold);
+    pointer-events: none;
+    animation: floatDown 2s ease-out forwards;
+}
+
+@keyframes floatDown {
+    0% { transform: translate(-50%, -50px); opacity: 0; }
+    100% { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.scroll-ribbon {
+    font-size: 32px;
+    filter: drop-shadow(0 0 10px var(--belle-gold));
+    margin-bottom: 5px;
+    animation: tiara-sparkle 4s ease-in-out infinite;
+}
+
+.scroll-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(28px, 4.5vw, 48px);
+    color: var(--belle-gold);
+    text-shadow: 0 0 15px rgba(245, 197, 66, 0.4);
+}
+
+/* --- Main Princess Wish Box --- */
+.princess-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeInMagic 2.5s ease-out 0.8s forwards;
+}
+
+@keyframes fadeInMagic {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.85); filter: blur(10px); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); filter: blur(0); }
+}
+
+.sparkle-cluster {
+    font-size: 42px;
+    color: var(--belle-gold);
+    animation: bounceSparkle 3s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 10px var(--belle-gold));
+}
+
+@keyframes bounceSparkle {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    100% { transform: translateY(-20px) rotate(20deg) scale(1.2); }
+}
+
+.wish-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wish-prefix {
+    font-size: clamp(14px, 2vw, 20px);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--cinderella-blue-light);
+    font-weight: 300;
+}
+
+.wish-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-weight: 900;
+    font-size: clamp(36px, 8vw, 84px);
+    background: linear-gradient(
+        45deg,
+        var(--aurora-pink) 0%,
+        var(--belle-gold) 33%,
+        var(--fairy-white) 50%,
+        var(--belle-gold) 66%,
+        var(--aurora-pink) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbow-flow 8s linear infinite;
+    filter: drop-shadow(0 0 25px rgba(245, 197, 66, 0.3));
+}
+
+.wish-suffix {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(24px, 5vw, 52px);
+    color: var(--aurora-pink);
+    text-shadow: 0 0 20px rgba(247, 168, 196, 0.5);
+}
+
+/* --- Magic Wand Container --- */
+.wand-container {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 110;
+    opacity: 0;
+    animation: fadeInMagic 2s ease-out 3.5s forwards;
+}
+
+.magic-wand-btn {
+    pointer-events: auto;
+    padding: 18px 45px;
+    background: linear-gradient(135deg, var(--aurora-pink-deep) 0%, var(--rapunzel-purple) 100%);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 60px;
+    color: white;
+    font-family: 'Cinzel Decorative', cursive;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.5s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 40px rgba(247, 116, 158, 0.4);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.magic-wand-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 15px 45px rgba(247, 116, 158, 0.6), 0 0 80px rgba(142, 107, 191, 0.4);
+    border-color: var(--belle-gold);
+}
+
+.magic-wand-btn:active {
+    transform: scale(0.95);
+}
+
+@keyframes wand-glow {
+    0%, 100% { background-position: 0% 50%; box-shadow: 0 0 20px rgba(247, 168, 196, 0.4), 0 0 40px rgba(142, 107, 191, 0.2); }
+    50% { background-position: 100% 50%; box-shadow: 0 0 35px rgba(247, 168, 196, 0.6), 0 0 60px rgba(142, 107, 191, 0.4); }
+}
+
+.magic-wand-btn:hover {
+    transform: scale(1.12);
+    box-shadow:
+        0 0 40px rgba(247, 168, 196, 0.7),
+        0 0 80px rgba(142, 107, 191, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.magic-wand-btn:active {
+    transform: scale(0.95);
+}
+
+.wand-icon {
+    font-size: 1.3em;
+    margin-right: 6px;
+}
+
+/* --- Sparkle Shimmer Overlay --- */
+.sparkle-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(245, 197, 66, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(247, 168, 196, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(142, 107, 191, 0.04) 0%, transparent 60%);
+    animation: shimmer-drift 10s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer-drift {
+    0% {
+        background:
+            radial-gradient(circle at 20% 30%, rgba(245, 197, 66, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(247, 168, 196, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, rgba(142, 107, 191, 0.04) 0%, transparent 60%);
+    }
+    100% {
+        background:
+            radial-gradient(circle at 70% 60%, rgba(245, 197, 66, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 30% 40%, rgba(247, 168, 196, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 60% 20%, rgba(142, 107, 191, 0.06) 0%, transparent 60%);
+    }
+}
+
+/* --- Soft Vignette (no scanlines!) --- */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 40%, rgba(20, 10, 50, 0.55) 100%);
+    pointer-events: none;
+    z-index: 15;
+}
+
+/* --- Celebration State --- */
+body.celebrating .wish-big {
+    animation: revealLine 1.2s ease-out 2s forwards, rainbow-flow 2s ease-in-out infinite, celebration-pulse 1s ease-in-out 3;
+}
+
+@keyframes celebration-pulse {
+    0%, 100% { filter: drop-shadow(0 0 20px rgba(247, 168, 196, 0.4)); }
+    50% { filter: drop-shadow(0 0 50px rgba(245, 197, 66, 0.8)); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .sparkle-left, .sparkle-right { display: none; }
+    #center-greeting { gap: 0; }
+    .magic-wand-btn { padding: 10px 24px; }
+    #bottom-tagline { bottom: 40px; }
+    #magic-wand-area { bottom: 70px; }
+}
