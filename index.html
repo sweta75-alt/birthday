@@ -51,6 +51,17 @@
     </div>
 
     <!-- Main Module Script -->
+     <!-- 🎵 Birthday Music -->
+<audio id="bg-music" loop>
+    <source src="the_mountain-happy-birthday-508020.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🎵 Play music on first click -->
+<script>
+document.body.addEventListener("click", function () {
+    document.getElementById("bg-music").play();
+}, { once: true });
+</script>
     <script type="module" src="scene.js"></script>
 </body>
 </html>
